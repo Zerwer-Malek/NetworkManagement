@@ -3,7 +3,9 @@
 
 using namespace std;
 
+// Change the MAC Address to a random pre-selected number
 void newid(){
+    // Pre-selected options
     string choices = "a8:bb:cf\n"
                      "a8:5c:2c\n"
                      "4c:57:ca\n"
@@ -19,7 +21,9 @@ void newid(){
                      "d0:c5:f3\n";
     vector<string> choiceV= split(choices, '\n');
     string mac;
-    mac = choiceV[rand() % choiceV.size()] + ":a3:d4:62";
+    mac = choiceV[rand() % choiceV.size()] + ":a3:d4:62"; // Random selection
+    
+    // Run command to change MAC Address
     string cmd ="sudo launchctl unload -w  "
     "/System/Library/LaunchDaemons/com.apple.netbiosd.plist "
     "&& sudo ifconfig en0 ether " + mac + ""
@@ -29,11 +33,16 @@ void newid(){
     cout << "Mac changed to " << mac << endl;
 }
 
+// Set the current devices MAC Address to be the same as the routers address
 void routermac(){
+    // Get the routers MAC Address
     vector<string> lines = split(filetostr("targets.txt"), '\n');
     string mac = lines[0].substr(0, 15);
     mac = mac + "4f";
+
     cout << "Mac set to " << mac << endl;
+
+    // Run the command
     mac = "sudo launchctl unload -w "
     "/System/Library/LaunchDaemons/com.apple.netbiosd.plist"
     " && sudo ifconfig en0 ether " + mac +

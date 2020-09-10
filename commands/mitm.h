@@ -8,6 +8,7 @@
 #include <vector>
 #include <stdexcept>
 #include <cstdlib>
+#include <signal.h>
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
@@ -23,7 +24,13 @@
 using namespace Tins;
 using namespace std;
 
-//Functions used in main file declared here
+/*
+ * Functions to preform an ARP Spoof
+ * requires two packets to be send:
+ * - One for the router
+ * - One for the victim
+*/
+
 void findIp(bool dos);
 void dosall(float speed);
 

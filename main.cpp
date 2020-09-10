@@ -5,7 +5,7 @@
 #include "commands/id.h"
 #include "commands/save/oui.h"
 
-//Function that returns output of command
+// Function takes a c string and return the output (C)
 string returnCmd(const char* cmd) {
     array<char, 128> buffer;
     string output;
@@ -18,19 +18,19 @@ string returnCmd(const char* cmd) {
     return output;
 }
 
-//Spits a string at desired character and returns in a vector of strings
-vector<string> split(string input, char c){
+// Spits a string at desired character and returns in a vector of strings
+vector<string> split(string input, char c) {
     stringstream ss(input);
     string s;
     vector<string> out;
-    while(getline(ss, s, c)){
+    while (getline(ss, s, c)) {
         out.push_back(s);
     }
     return out;
 }
 
-//Takes file reads contents and returns them as a string
-string filetostr(string name){
+// Takes file reads contents and returns them as a string
+string filetostr(string name) {
     ifstream file(name);
     stringstream buffer;
     buffer << file.rdbuf();
@@ -38,14 +38,14 @@ string filetostr(string name){
     return i;
 }
 
-//header function for clearing and starting program
-void header(){
+// Header function for clearing and starting program
+void header() {
     system("clear");
     cout << "\t\t\t\tMiTM Toolkit\n";
 }
 
-//help function that displays all available commands
-void help(){
+// Help function that displays all available commands
+void help() {
     cout << "clear - Clear screen and display header\n"
             "dos - DOS a target from targets.txt\n"
             "dosall - Dos everyone listed on targets.txt\n"
@@ -61,19 +61,19 @@ void help(){
         }
 
 /*
- Main function:
- Starts with header funtion on startup
- Runs main terminal loop
- Prints >>> and takes string input arg
- Test if arg is a command and then run corresponding function
+ * Main function:
+ * Starts with header funtion on startup
+ * Runs main terminal loop
+ * Prints >>> and takes string input arg
+ * Test if arg is a command and then run corresponding function
 */
 int main(){
     header();
-    while(true){
+    while(true) {
         cout << ">>> ";
         string arg;
         cin >> arg;
-        
+
         if(arg == "get") get();
         else if(arg == "help") help();
         else if(arg == "clear") header();

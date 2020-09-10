@@ -6,7 +6,6 @@
 #include <vector>
 #include <algorithm>
 
-//Functions for commands
 void list();
 
 #endif

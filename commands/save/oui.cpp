@@ -1,7 +1,10 @@
 #include "../../main.h"
 #include "oui.h"
 
-//Oui mac lookup should be compiled into program as string for speed
+/* 
+ * OUI Mac lookup file is loaded into memory as a string for
+ * quick loading times 
+*/
 string oui = "\n"
 "E043DB Shenzhen ViewAt Technology Co.,Ltd. \n"
 "2405F5 Integrated Device Technology (Malaysia) Sdn. Bhd.\n"

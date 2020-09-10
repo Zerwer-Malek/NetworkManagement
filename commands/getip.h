@@ -16,6 +16,4 @@
 
 void get();
 
-//string oui();
-
 #endif

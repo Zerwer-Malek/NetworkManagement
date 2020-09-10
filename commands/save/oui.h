@@ -6,7 +6,7 @@
 
 using namespace std;
 
-//oui in string format
+// OUI Mac Lookup in string format
 extern string oui;
 
 #endif

@@ -9,7 +9,7 @@
 
 using namespace std;
 
-//Functions that can be used in every file to be delared here
+// General functions that live in main
 string returnCmd(const char* cmd);
 vector<string> split(string input, char c);
 string filetostr(string name);
